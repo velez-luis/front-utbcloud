@@ -1,0 +1,11 @@
+# Usar una imagen de NGINX como base
+FROM nginx:alpine
+
+# Copiar los archivos de la carpeta build generada por `npm run build`
+COPY ./build /usr/share/nginx/html
+
+# Exponer el puerto 80 para el servidor web
+EXPOSE 80
+
+# Comando para ejecutar NGINX en primer plano
+CMD ["nginx", "-g", "daemon off;"]
